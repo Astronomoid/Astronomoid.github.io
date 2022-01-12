@@ -5,7 +5,7 @@ body{
     /* background-size:contain; */
     background-size: cover;
     color: white;
-    margin: 2px 2%;
+    /* margin: 2px 2%; */
     font-family: 'Times New Roman', Times, serif;
 
 }
@@ -27,7 +27,7 @@ body{
     padding-left: 0;
 }
 
-ul {
+.menu {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -38,10 +38,7 @@ ul {
     /* width: 100%; */
 }
 
-li {
-    display: inline;
 
-}
 
 .topnav{
     /* background-color: #333; */
@@ -78,3 +75,53 @@ li {
     color: white;
 }
 
+.social-media {
+    position: fixed;
+    /* align-self: baseline; */
+    height: 80px ;
+    bottom: 0%;
+    left: 30%;
+    /* border-bottom: 2px solid #04AA6D; */
+    /* border-top: 2px solid #04AA6D; */
+    /* background-color: black; */
+    justify-content: right;
+    text-align: right;
+    width: 70%;
+}
+
+.social-media a {
+    padding: 40px 30px;
+}
+
+.copyright {
+    position: fixed;
+    /* align-self: baseline; */
+    height: 10px ;
+    bottom: 0%;
+    /* left: 30%; */
+    /* border-bottom: 2px solid #04AA6D; */
+    /* border-top: 2px solid #04AA6D; */
+    /* background-color: black; */
+    justify-content: left;
+    text-align: left;
+    width: 30%;
+}
+
+.social-media a:hover{
+    background: white;
+    color: black;
+}
+
+ul.observatories {
+   list-style-type: none;
+}
+
+ul.menu>li, ul.websites>li {
+    display: inline;
+}
+
+.introduction {
+    /* width: 70%; */
+    justify-content: center;
+    text-align: center;
+}
