@@ -76,7 +76,7 @@ body {
 }
 
 .social-media {
-    position: relative;
+    position: fixed;
     align-self: baseline;
     height: 80px;
     bottom: 0%;
