@@ -1,0 +1,167 @@
+body {
+    background-color: black;
+    /* background-repeat:repeat-x; */
+    /* background-size:contain; */
+    background-size: auto;
+    color: white;
+    /* margin: 2px 2%; */
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.first-line-text {
+    background-image: url('../Images/PSX_Avinash.jpg');
+    background-repeat: repeat;
+    position: auto;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    text-transform: capitalize;
+    /* border-bottom: 2px solid #57b1dc; */
+    font-size: 1.5em;
+    margin-top: 15px;
+}
+
+.first-line-image {
+    position: fixed;
+    align-self: flex-start;
+    padding-top: 0;
+    padding-left: 0;
+}
+
+.menu {
+    list-style-type: none;
+    background-image: url('../Images/PSX_Avinash.jpg');
+    margin: 0;
+    padding: 0;
+    /* border-bottom: 2px solid #04AA6D; */
+    /* display: inline; */
+    /* position: fixed; */
+    /* top: 100px; */
+    /* width: 100%; */
+}
+
+.topnav {
+    /* background-color: #333; */
+    overflow: hidden;
+    background-image: url('../Images/PSX_Avinash.jpg');
+    position: top;
+    top: 0px;
+    width: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 2px solid red;
+}
+
+.topnav a {
+    color: #f2f2f2;
+    /* text-align:end; */
+    padding: 45px 30px;
+    text-decoration: springgreen;
+    font-size: x-large;
+    display: inline;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.topnav a:hover {
+    background: tomato;
+    color: black;
+}
+
+.topnav a:active {
+    background: #04AA6D;
+    color: white;
+}
+
+.social-media {
+    position: fixed;
+    align-self: baseline;
+    height: 80px;
+    bottom: 0%;
+    left: 30%;
+    /* border-bottom: 2px solid #04AA6D; */
+    /* border-top: 2px solid #04AA6D; */
+    /* background-color: black; */
+    justify-content: right;
+    text-align: right;
+    width: 70%;
+}
+
+.social-media a {
+    padding: 40px 30px;
+}
+
+.copyright {
+    position: fixed;
+    align-self: baseline;
+    height: 10px;
+    bottom: 0%;
+    /* left: 30%; */
+    /* border-bottom: 2px solid #04AA6D; */
+    /* border-top: 2px solid #04AA6D; */
+    /* background-color: black; */
+    justify-content: left;
+    text-align: left;
+    width: 30%;
+}
+
+.social-media a:hover {
+    background: white;
+    color: black;
+}
+
+ul.observatories,
+ul.tools {
+    list-style-type: none;
+}
+
+ul.menu>li,
+ul.websites>li {
+    display: inline;
+}
+
+.introduction {
+    /* width: 70%; */
+    justify-content: center;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+
+/* ul.subtools {
+    list-style-type: disc;
+    margin: 0;
+    padding: 10px;
+    list-style-position: inside;
+    background: #3399ff;
+} */
+
+table {
+    font-family: 'Times New Roman', Times, serif;
+    border-collapse: collapse;
+    width: 80%;
+    box-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid rgb(5, 145, 180);
+}
+
+td,
+th {
+    border: 5px solid #0e0d0d;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #903bffca;
+}
+
+tr:nth-child(odd) {
+    background-color: #46e6f1ad;
+}
