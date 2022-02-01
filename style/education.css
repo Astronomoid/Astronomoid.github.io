@@ -9,7 +9,7 @@ body {
 }
 
 .first-line-text {
-    background-image: url('../Images/PSX_Avinash.jpg');
+    background-image: url('../media/PSX_Avinash.jpg');
     background-repeat: repeat;
     position: auto;
     text-align: center;
@@ -30,7 +30,7 @@ body {
 
 .menu {
     list-style-type: none;
-    background-image: url('../Images/PSX_Avinash.jpg');
+    background-image: url('../media/PSX_Avinash.jpg');
     margin: 0;
     padding: 0;
     /* border-bottom: 2px solid #04AA6D; */
@@ -43,7 +43,7 @@ body {
 .topnav {
     /* background-color: #333; */
     overflow: hidden;
-    background-image: url('../Images/PSX_Avinash.jpg');
+    background-image: url('../media/PSX_Avinash.jpg');
     position: top;
     top: 0px;
     width: auto;
