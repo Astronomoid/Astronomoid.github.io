@@ -1,5 +1,7 @@
 body {
-    background-color: black;
+    /* background-color: black;*/
+    background: rgb(21, 0, 255);
+    background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(21, 0, 255, 1) 100%);
     /* background-repeat:repeat-x; */
     /* background-size:contain; */
     background-size: auto;
@@ -9,8 +11,8 @@ body {
 }
 
 .first-line-text {
-    background-image: url('../media/PSX_Avinash.jpg');
-    background-repeat: repeat;
+    /* background-image: url('../media/PSX_Avinash.jpg');
+    background-repeat: repeat; */
     position: auto;
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -31,7 +33,7 @@ body {
 
 .menu {
     list-style-type: none;
-    background-image: url('../media/PSX_Avinash.jpg');
+    /* background-image: url('../media/PSX_Avinash.jpg'); */
     margin: 0;
     padding: 0;
     /* border-bottom: 2px solid #04AA6D; */
@@ -44,7 +46,7 @@ body {
 .topnav {
     /* background-color: #333; */
     overflow: hidden;
-    background-image: url('../media/PSX_Avinash.jpg');
+    /* background-image: url('../media/PSX_Avinash.jpg'); */
     position: top;
     top: 0px;
     width: auto;
@@ -131,6 +133,15 @@ ul.websites>li {
 
 p {
     text-align: center;
+}
+
+.turn-it {
+    transform: rotate(-15deg);
+    color: red;
+    font-size: larger;
+    font-weight: 800;
+    font-variant: small-caps;
+    display: inline-block;
 }
 
 
