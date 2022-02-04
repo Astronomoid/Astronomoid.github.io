@@ -82,13 +82,13 @@ a.current-page {
     align-self: baseline;
     height: 80px;
     bottom: 0%;
-    left: 30%;
+    /* left: 50%; */
     /* border-bottom: 2px solid #04AA6D; */
     /* border-top: 2px solid #04AA6D; */
     /* background-color: black; */
     justify-content: right;
     text-align: right;
-    width: 70%;
+    width: 100%;
 }
 
 .social-media a {
@@ -106,7 +106,7 @@ a.current-page {
     /* background-color: black; */
     justify-content: left;
     text-align: left;
-    width: 30%;
+    width: 100%;
 }
 
 .social-media a:hover {
