@@ -1,6 +1,8 @@
 var header = document.querySelector(".last")
+var deaths = document.querySelector(".turn-it")
 
 header.style.color = 'red'
+deaths.style.color = 'red'
 
 function randomColors() {
     var alphs = "0123456789ABCDEF";
@@ -20,3 +22,10 @@ function changeHeaderColor() {
 }
 
 setInterval("changeHeaderColor()", 500);
+
+function changedeathColor() {
+    colorInput = randomColors()
+    deaths.style.color = colorInput;
+
+}
+setInterval("changedeathColor()", 2000);

@@ -10,25 +10,18 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
-.first-line-text {
+.toptext {
     /* background-image: url('../media/PSX_Avinash.jpg');
     background-repeat: repeat; */
-    position: auto;
-    text-align: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* position: auto; */
+    /* text-align: center; */
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
     font-weight: bold;
     text-transform: capitalize;
     /* border-bottom: 2px solid #57b1dc; */
-    font-size: 1.5em;
-    margin-top: 15px;
+    /* font-size: 1.5em; */
+    /* margin-top: 25px; */
     color: white;
-}
-
-.first-line-image {
-    position: fixed;
-    align-self: flex-start;
-    padding-top: 0;
-    padding-left: 0;
 }
 
 .menu {
@@ -54,13 +47,13 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
-    border-bottom: 2px solid red;
+    /* border-bottom: 2px solid black; */
 }
 
 .topnav a {
     color: #f2f2f2;
     /* text-align:end; */
-    padding: 45px 30px;
+    padding: 5px 30px;
     text-decoration: springgreen;
     font-size: x-large;
     display: inline;
@@ -125,15 +118,17 @@ ul.websites>li {
     display: inline;
 }
 
-.introduction {
-    /* width: 70%; */
+
+/* .introduction {
+    width: 70%;
     justify-content: center;
     text-align: center;
-}
+} */
 
-p {
+
+/* p {
     text-align: center;
-}
+} */
 
 .turn-it {
     transform: rotate(-15deg);
