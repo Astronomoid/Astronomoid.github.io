@@ -1,5 +1,7 @@
 body {
-    background-color: black;
+    /* background-color: black;*/
+    background: rgb(21, 0, 255);
+    background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(21, 0, 255, 1) 100%);
     /* background-repeat:repeat-x; */
     /* background-size:contain; */
     background-size: auto;
@@ -8,29 +10,23 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
-.first-line-text {
-    background-image: url('../media/PSX_Avinash.jpg');
-    background-repeat: repeat;
-    position: auto;
-    text-align: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.toptext {
+    /* background-image: url('../media/PSX_Avinash.jpg');
+    background-repeat: repeat; */
+    /* position: auto; */
+    /* text-align: center; */
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
     font-weight: bold;
     text-transform: capitalize;
     /* border-bottom: 2px solid #57b1dc; */
-    font-size: 1.5em;
-    margin-top: 15px;
-}
-
-.first-line-image {
-    position: fixed;
-    align-self: flex-start;
-    padding-top: 0;
-    padding-left: 0;
+    /* font-size: 1.5em; */
+    /* margin-top: 25px; */
+    color: white;
 }
 
 .menu {
     list-style-type: none;
-    background-image: url('../media/PSX_Avinash.jpg');
+    /* background-image: url('../media/PSX_Avinash.jpg'); */
     margin: 0;
     padding: 0;
     /* border-bottom: 2px solid #04AA6D; */
@@ -43,7 +39,7 @@ body {
 .topnav {
     /* background-color: #333; */
     overflow: hidden;
-    background-image: url('../media/PSX_Avinash.jpg');
+    /* background-image: url('../media/PSX_Avinash.jpg'); */
     position: top;
     top: 0px;
     width: auto;
@@ -51,13 +47,13 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
-    border-bottom: 2px solid red;
+    /* border-bottom: 2px solid black; */
 }
 
 .topnav a {
     color: #f2f2f2;
     /* text-align:end; */
-    padding: 45px 30px;
+    padding: 5px 30px;
     text-decoration: springgreen;
     font-size: x-large;
     display: inline;
@@ -144,11 +140,11 @@ p {
 table {
     font-family: 'Times New Roman', Times, serif;
     border-collapse: collapse;
-    width: 80%;
+    width: 75%;
     box-align: center;
     margin-left: auto;
     margin-right: auto;
-    border: 5px solid rgb(5, 145, 180);
+    border: 5px solid whitesmoke;
 }
 
 td,
@@ -159,9 +155,19 @@ th {
 }
 
 tr:nth-child(even) {
-    background-color: #903bffca;
+    background-color: #fff783ef;
 }
 
+th,
 tr:nth-child(odd) {
-    background-color: #46e6f1ad;
+    background-color: #77ff99ad;
+}
+
+.turn-it {
+    transform: rotate(-15deg);
+    color: red;
+    font-size: larger;
+    font-weight: 800;
+    font-variant: small-caps;
+    display: inline-block;
 }
