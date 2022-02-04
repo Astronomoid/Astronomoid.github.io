@@ -94,10 +94,6 @@ body {
     align-self: baseline;
     height: 10px;
     bottom: 0%;
-    /* left: 30%; */
-    /* border-bottom: 2px solid #04AA6D; */
-    /* border-top: 2px solid #04AA6D; */
-    /* background-color: black; */
     justify-content: left;
     text-align: left;
     width: 30%;
@@ -118,23 +114,14 @@ ul.websites>li {
     display: inline;
 }
 
-.introduction {
-    /* width: 70%; */
+
+/* .introduction {
     justify-content: center;
     text-align: center;
 }
 
 p {
     text-align: center;
-}
-
-
-/* ul.subtools {
-    list-style-type: disc;
-    margin: 0;
-    padding: 10px;
-    list-style-position: inside;
-    background: #3399ff;
 } */
 
 table {
