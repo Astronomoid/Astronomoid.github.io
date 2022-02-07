@@ -5,60 +5,74 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./style/blog.css">
+    <link rel="stylesheet" href="./style/bootstrap.css">
     <title>Blog | Astronomoid</title>
 </head>
 
 <body>
     <header>
 
-        <!-- <div class = "logo">
-            <figure>
-        <img src="logo2.png" alt="Astronomoid logo"/>
-        </figure>
-        </div> -->
-        <div class="first-line-image">
-            <figure>
-                <a href="index.html"> <img src="./media/logo2.png" height="60px" width="170px" /></a>
-            </figure>
+
+        <div class="container-fluid shadow-lg rounded">
+            <div class='row'>
+                <div class="col">
+                    <figure>
+                        <a href="index.html"> <img src="./media/logo2.png" height="60px" width="170px" /></a>
+                    </figure>
+                </div>
+                <div class='col-10 mt-2 mb-3 toptext'>
+                    <!-- <div class="first-line-text"> -->
+                    <h1>Studying The Universe Through Beautiful <span class='turn-it'>Deaths</span>!</h1>
+                </div>
+            </div>
         </div>
-        <div class="first-line-text">
-            <h1>Studying The Universe Through Beautiful Deaths!</h1>
-        </div>
 
 
 
-        <div class="topnav">
-            <ul>
-                <!-- <a href="#home" ><img src="logo2.png" height="50px" width="150px"/></a> -->
-                <li> <a class="active" href="index.html">Home</a></li>
-                <li><a href="education.html">Education</a></li>
-                <!-- <a href="#works">Works</a> -->
-                <li> <a href="blog.html">Personal Blog</a></li>
-                <li> <a href="codes.html">Codes</a></li>
-                <!-- <li> <a href="./socialmedia.html">Let's Connect</a></li> -->
+        <nav class="container-fluid topnav shadow-lg rounded">
+            <ul class="menu">
+                <li> <a class="hovicon effect-8 " href="index.html">Home</a></li>
+                <li><a class="hovicon effect-8 " href="education.html">Education</a></li>
+                <li> <a class="hovicon effect-8 current-page" href="blog.html">Personal Blog</a></li>
+                <li> <a class="hovicon effect-8" href="codes.html">Codes</a></li>
 
             </ul>
-        </div>
-
+        </nav>
     </header>
-    <h1>Thoughts</h1>
 
-    <!-- <p>My name is Rishabh Singh Teja. I am currently a Junior
-        Research Fellow (JRF) at the Indian Institute of Astrophysics (IIA) situated at Bangalore
-        , Karnataka, India. I have completed my two years of PhD here. </p>
+    <h1 class="text-center text-white">Thoughts</h1>
 
-        <p>I work on the observational studies of core-collapse Supernovae. Till now I have worked on the data from the following telescopes:
-           <ul>
-         <li> <em> Chandra Telescope (2-m)</em></li>  
-        <li>  <em> Devasthal Optical Telescope (3.6-m)</em></li>  
-    <li>  <em>UVOT onboard Swift Observatory</em></li>  
-<li>  <em>Growth India Telescope</em></li>  </p>
-    </ul>
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class="col text-start fixed-bottom mb-0">
+                <p class="text-black mb-0"> Copyright &copy; 2022 Rishabh Singh Teja. All rights are reserved.</p>
+            </div>
 
-    <p></p> -->
+            <div class="col mb-2 text-end align-items-end social-media fixed-bottom">
+                <ul class="websites">
+                    <li>
+                        <a href="https://facebook.com/rishabh.teja/"><img src="./media/facebook-48x48-3649909.png" /></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/astronomoid"><img src="./media/twitter-48x48-3649898.png" /></a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/astronomoid"><img src="./media/instagram-48x48-3649911.png" /></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/astronomoid"><img src="./media/linkedin-48x48-3649912.png"></a>
+                    </li>
+                    <li>
+                        <a href="mailto:rsteja001@gmail.com;rishabh.teja@iiap.res.in"><img src="./media/email.png" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <footer>
-        <p class="last">This website is in progress </p>
+        <p class="last text-center">This website is in progress </p>
     </footer>
 </body>
+<script src="./code/code.js"></script>
 
 </html>
