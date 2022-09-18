@@ -1,0 +1,435 @@
+body {
+    /* background-color: black;*/
+    background: rgb(21, 0, 255);
+    background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(21, 0, 255, 1) 100%);
+    /* background-repeat:repeat-x; */
+    /* background-size:contain; */
+    background-size: auto;
+    color: white;
+    /* margin: 2px 2%; */
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+/* The actual timeline (the vertical ruler) */
+
+.main-timeline-2 {
+    position: relative;
+}
+
+
+/* The actual timeline (the vertical ruler) */
+
+.main-timeline-2::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    background-color: #26c6da;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+
+/* Container around content */
+
+.timeline-2 {
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+
+/* The circles on the timeline */
+
+.timeline-2::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -11px;
+    background-color: #26c6da;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+
+/* Place the container to the left */
+
+.left-2 {
+    padding: 0px 40px 20px 0px;
+    left: 0;
+}
+
+
+/* Place the container to the right */
+
+.right-2 {
+    padding: 0px 0px 20px 40px;
+    left: 50%;
+}
+
+
+/* Add arrows to the left container (pointing right) */
+
+.left-2::before {
+    content: " ";
+    position: absolute;
+    top: 18px;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+
+/* Add arrows to the right container (pointing left) */
+
+.right-2::before {
+    content: " ";
+    position: absolute;
+    top: 18px;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+
+/* Fix the circle for containers on the right side */
+
+.right-2::after {
+    left: -14px;
+}
+
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+
+@media screen and (max-width: 600px) {
+    /* Place the timelime to the left */
+    .main-timeline-2::after {
+        left: 31px;
+    }
+    /* Full-width containers */
+    .timeline-2 {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    /* Make sure that all arrows are pointing leftwards */
+    .timeline-2::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+    /* Make sure all circles are at the same spot */
+    .left-2::after,
+    .right-2::after {
+        left: 18px;
+    }
+    .left-2::before {
+        right: auto;
+    }
+    /* Make all right containers behave like the left ones */
+    .right-2 {
+        left: 0%;
+    }
+}
+
+.toptext {
+    /* background-image: url('../media/PSX_Avinash.jpg');
+    background-repeat: repeat; */
+    /* position: auto; */
+    /* text-align: center; */
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+    font-weight: bold;
+    text-transform: capitalize;
+    /* border-bottom: 2px solid #57b1dc; */
+    /* font-size: 1.5em; */
+    /* margin-top: 25px; */
+    color: white;
+}
+
+.menu {
+    list-style-type: none;
+    /* background-image: url('../media/PSX_Avinash.jpg'); */
+    margin: 0;
+    padding: 0;
+    /* border-bottom: 2px solid #04AA6D; */
+    /* display: inline; */
+    /* position: fixed; */
+    /* top: 100px; */
+    /* width: 100%; */
+}
+
+.topnav {
+    /* background-color: #333; */
+    overflow: hidden;
+    /* background-image: url('../media/PSX_Avinash.jpg'); */
+    position: top;
+    top: 0px;
+    width: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    /* border-bottom: 2px solid black; */
+}
+
+.topnav a {
+    color: #00ffff;
+    /* text-align:end; */
+    margin: 20px 30px;
+    padding: 10px 10px;
+    text-decoration: springgreen;
+    font-size: x-large;
+    display: inline;
+    text-align: center;
+    /* margin: 0 auto; */
+}
+
+a.current-page {
+    color: #fbffff;
+}
+
+
+/* .topnav a:hover {
+    background: tomato;
+    color: black;
+}
+
+.topnav a:active {
+    background: #04AA6D;
+    color: white;
+} */
+
+.social-media {
+    position: fixed;
+    align-self: baseline;
+    height: 80px;
+    bottom: 0%;
+    /* left: 50%; */
+    /* border-bottom: 2px solid #04AA6D; */
+    /* border-top: 2px solid #04AA6D; */
+    /* background-color: black; */
+    justify-content: right;
+    text-align: right;
+    width: 100%;
+}
+
+.social-media a {
+    padding: 40px 30px;
+}
+
+.copyright {
+    position: fixed;
+    align-self: baseline;
+    height: 10px;
+    bottom: 0%;
+    /* left: 30%; */
+    /* border-bottom: 2px solid #04AA6D; */
+    /* border-top: 2px solid #04AA6D; */
+    /* background-color: black; */
+    justify-content: left;
+    text-align: left;
+    width: 100%;
+}
+
+.social-media a:hover {
+    background: rgba(255, 255, 255, 0.459);
+    color: black;
+}
+
+ul.observatories,
+ul.tools {
+    list-style-type: square;
+}
+
+ul.menu>li,
+ul.websites>li {
+    display: inline;
+}
+
+
+/* .introduction {
+    width: 70%;
+    justify-content: center;
+    text-align: center;
+} */
+
+
+/* p {
+    text-align: center;
+} */
+
+.turn-it {
+    transform: rotate(-15deg);
+    color: red;
+    font-size: larger;
+    font-weight: 800;
+    font-variant: small-caps;
+    display: inline-block;
+}
+
+
+/* ul.subtools {
+    list-style-type: disc;
+    margin: 0;
+    padding: 10px;
+    list-style-position: inside;
+    background: #3399ff;
+} */
+
+.hovicon {
+    display: inline-block;
+    /* font-size: 45px; */
+    line-height: 75px;
+    cursor: default;
+    margin: 20px;
+    width: 90px;
+    height: 90px;
+    border-radius: 15%;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+    /* color: rgb(0, 0, 0); */
+}
+
+.hovicon.small {
+    font-size: 20px;
+    line-height: 45px;
+    width: 45px;
+    height: 45px;
+    margin: 7px;
+}
+
+.hovicon.mini {
+    font-size: 15px;
+    line-height: 32px;
+    width: 30px;
+    height: 30px;
+    margin: 7px;
+}
+
+.hovicon.auto-width {
+    width: auto;
+    height: auto;
+    padding: 5px;
+}
+
+.hovicon:after {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15%;
+    content: '';
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.hovicon:before {
+    speak-as: none;
+    font-size: 48px;
+    line-height: 90px;
+    /* font-style: normal; */
+    /* font-weight: normal; */
+    /* font-variant: normal; */
+    /* text-transform: none; */
+    display: block;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* Effect 8 */
+
+.hovicon.effect-8 {
+    /* background: rgba(255, 0, 0, 0.1); */
+    -webkit-transition: -webkit-transform ease-out 0.1s, background 0.2s;
+    -moz-transition: -moz-transform ease-out 0.1s, background 0.2s;
+    transition: transform ease-out 0.1s, background 0.2s;
+}
+
+.hovicon.effect-8:after {
+    top: 0;
+    left: 0;
+    padding: 0;
+    z-index: -1;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+.hovicon.effect-8:hover {
+    background: rgba(3, 239, 247, 0.267);
+    -webkit-transform: scale(0.93);
+    -moz-transform: scale(0.93);
+    -ms-transform: scale(0.93);
+    transform: scale(0.93);
+    color: #fff;
+}
+
+.hovicon.effect-8:hover i {
+    color: #fff;
+}
+
+.hovicon.effect-8:hover:after {
+    -webkit-animation: sonarEffect 1.3s ease-out 75ms;
+    -moz-animation: sonarEffect 1.3s ease-out 75ms;
+    animation: sonarEffect 1.3s ease-out 75ms;
+}
+
+@-webkit-keyframes sonarEffect {
+    0% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255, 255, 255, 0.5);
+        -webkit-transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes sonarEffect {
+    0% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255, 255, 255, 0.5);
+        -moz-transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes sonarEffect {
+    0% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255, 255, 255, 0.5);
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
