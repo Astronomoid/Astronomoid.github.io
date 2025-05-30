@@ -1,196 +1,263 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="google-site-verification" content="mRYUlrSnukwX8ldJ9-ssir6u0Mb25lZ_V5X1_SBdlUg" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CE90WGQPY7"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-CE90WGQPY7');
     </script>
-    <link rel="stylesheet" href="./style/index2.css">
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./style/bootstrap.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style/common.css">
+    <link rel="stylesheet" href="./style/index.css">
     <title>Home | Astronomoid</title>
+    <style>
+        /* Page-specific styles */
+        .turn-it {
+            color: #ffb300;
+            text-shadow: 0 0 8px #fff176, 0 0 2px #fff;
+        }
+        .figure-img {
+            border: 3px solid #3949ab;
+            box-shadow: 0 0 24px #3949ab55;
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+        }
+        .astro-card ul {
+            padding-left: 1.2rem;
+        }
+        .astro-card li {
+            margin-bottom: 0.5rem;
+        }
+        .profile-img {
+            border-radius: 50%;
+            border: 4px solid #3949ab;
+            box-shadow: 0 0 24px #3949ab88;
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            margin-top: 1rem;
+            max-width: 90vw;
+        }
+        @media (max-width: 1200px) {
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+        @media (max-width: 992px) {
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        @media (max-width: 768px) {
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            .figure-img {
+                margin-bottom: 1rem;
+            }
+        }
+        @media (max-width: 576px) {
+            .profile-img {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <header>
-
-
-        <div class="container-fluid shadow-lg rounded">
-            <div class='row'>
-                <div class="col">
-                    <figure class="align-top">
-                        <a href="index.html"> <img src="./media/logo8_dark.png" height="80px" width="194px" /></a>
-                    </figure>
+    <canvas class="star-bg"></canvas>
+    <header class="py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-3 text-center text-md-start mb-2 mb-md-0">
+                    <a href="index.html">
+                        <img src="./media/logo_white.png" height="80" width="194" alt="Astronomoid Logo" class="img-fluid" style="max-width:100%;height:auto;" />
+                    </a>
                 </div>
-            </div>
-            <div class="row">
-                <div class='col text-center  mb-3 toptext'>
-                    <!-- <div class="first-line-text"> -->
-                    <h1>Studying The Universe Through Beautiful <span class='turn-it'>Deaths</span>!</h1>
+                <div class="col-12 col-md-9 text-center">
+                    <h1 class="display-6 display-md-5 fw-bold mb-0">Studying The Universe Through Beautiful <span class='turn-it'>Deaths</span>!</h1>
+                    <p class="lead mt-2 mb-0">Exploring the cosmos, one supernova at a time.</p>
                 </div>
             </div>
         </div>
-        </div>
-
-
-
-        <nav class="container-fluid topnav shadow-lg rounded">
+        <nav class="navbar-custom mt-3">
             <ul class="menu">
-                <li> <a class="hovicon effect-8 current-page" href="index.html">Home</a></li>
+                <li><a class="hovicon effect-8 current-page" href="index.html">Home</a></li>
                 <li><a class="hovicon effect-8" href="education.html">Education</a></li>
-                <li> <a class="hovicon effect-8" href="blog.html">Personal Blog</a></li>
-                <li> <a class="hovicon effect-8" href="works.html">Works</a></li>
-                <li> <a class="hovicon effect-8" href="memories.html">Memories</a></li>
+                <li><a class="hovicon effect-8" href="blog.html">Thoughts</a></li>
+                <li><a class="hovicon effect-8" href="works.html">Works</a></li>
+                <li><a class="hovicon effect-8" href="memories.html">Memories</a></li>
             </ul>
         </nav>
     </header>
-    <div class="container">
-        <figure class="figure">
-            <!-- <div class="row"> -->
-            <!-- <div class="col"> -->
-            <img src="./media/IMG_village.jpg" alt="Panorama evening image from my village" class="figure-img img-fluid rounded-3 float-end shadow-lg">
-            <figcaption class="figure-caption text-white text-end"> &#127748;: Panaromic view of one random evening in my village.</figcaption>
-        </figure>
-        <!-- </div> -->
-        <!-- </div> -->
-    </div>
-    <!-- </div> -->
-    <div class="container text-white">
-        <div class='row justify-content-md-center'>
-            <!-- <div class='col-1'></div> -->
-            <div class='col'>
-                <div class="row justify-content-md-center">
-                    <div class='col'>
-                        <h1 class='text-center'>Introduction</h1>
 
-                        <p>My name is Rishabh Singh Teja. I am currently a Senior Research Fellow (SRF) at the Indian Institute of Astrophysics (IIA) situated at Bangalore , Karnataka, India. I have been doing my PhD here. I work on the observational and
-                            theoretical aspects of Core-Collapse Supernovae (CCSNe), which are the spectacular <em>deaths</em> of stars with initial masses greater than 8 Suns combined.
-                        </p>
-                        <div class="row">
-                            <div class='col'>
-                                Till now I have worked on the data from the following telescopes:
-                                <ul class='observatories'>
-                                    <li> <em> Himalayan Chandra Telescope (2-m)</em></li>
-                                    <li> <em> Devasthal Optical Telescope (3.6-m)</em></li>
-                                    <li> <em>UVOT onboard Swift Observatory (0.3-m)</em></li>
-                                    <li> <em>Growth India Telescope (0.7-m)</em></li>
-                                    <li><em>KANATA Telescope, Hiroshima, Japan (1-5 m)</em></li>
-                                    <li><em>AstroSat (UVIT)</em></li>
-
-                                </ul>
-
-                            </div>
-                            <!-- <div class='col-1'></div> -->
-                            <div class='col'>
-                                I am familier with the following tools, computer languages, codes, etc., some of which I use very often.
-                                <ul class='tools'>
-                                    <li>Languages: C, C++, and Python</li>
-                                    <!-- <li>Python [lib: <em>pandas, matplotlib, astropy, scikit-learn, emcee, etc.</em>]</li> -->
-                                    <li>Tools/Softwares: MESA Star, IRAF, SYNAPPS, TARDIS, Linux, MS-Office, etc.</li>
-                                    <!-- <li>CSS</li>
-                            <li>Javascript</li>
-                            <li>Latex</li>
-                            <li>MESA Star</li>
-                            <li>IRAF</li>
-                            <li>SYNAPPS</li>
-                            <li>TARDIS</li> -->
-                                    <li>Others: Latex, HTML, CSS, and Javascript</li>
-                                </ul>
-                            </div>
-
-                            <h3 class='text-center'>Extracurriculars </h3>
-
-                            <p>Some of my interests/hobbies are:
-                                <ul class='tools'>
-
-                                    <li>Love playing both indoor and outdoor games such as Table Tennis, Badminton, Volleyball, Cricket, Football and Chess
-                                    </li>
-                                    <li>Love reading fiction and mythology books</li>
-                                    <li>Ardent Cinema lover</li>
-                                    <li>Tech enthusiast</li>
-                                    <li>Worked on different committes at school and college level</li>
-                                    <li>Involved in editorial & design roles for IIA's science e-Magazine <a href="https://www.iiap.res.in/doot/">'DOOT'</a> [Served as its Chief Editor from May-2023 to Jan-2024]
-                                    </li>
-                                    <li> Involved with the editorial work at ASI's Science Outreach platform 'Cosmic Varta'</li>
-                                    <li> Part of institute's computer committe as student representative
-                                    </li>
-                                    <li>Life member of Astronomical Society of India (ASI) [L2454]</li>
-                            </p>
-                            <p>
-
-                                I have always believed in working hard with honesty. I am always eager to learn new things, whether new tools, concepts, or even sports. I have always been a very keen listener and love to hear about different things from everyone. I believe in self-learning
-                                and followed it most of my life. I have experienced that, howsoever challenging things may seem, if we keep working hard, it eventually bears fruit and presents us with wonderful outcomes. I like to do everything with utmost
-                                dedication and passion.
-
-                            </p>
-
+    <main class="container mt-4 position-relative" style="z-index:1;">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-8">
+                <figure class="figure">
+                    <img src="./media/IMG_village.jpg" alt="Panorama evening image from my village" class="figure-img img-fluid rounded-3 shadow-lg">
+                    <figcaption class="figure-caption text-white text-end">
+                        <i class="fa-solid fa-mountain-sun astro-icon"></i>
+                        Panoramic view of one random evening in my village.
+                    </figcaption>
+                </figure>
+                <div class="intro-card">
+                    <h2 class="text-center mb-3"><i class="fa-solid fa-user-astronaut astro-icon"></i>Introduction</h2>
+                    <p>
+                        My name is <strong>Rishabh Singh Teja</strong>. I am currently a Senior Research Fellow (SRF) at the Indian Institute of Astrophysics (IIA), Bangalore, India. I have been doing my PhD here. I work on the observational and theoretical aspects of <strong>Core-Collapse Supernovae (CCSNe)</strong>, which are the spectacular <em>deaths</em> of stars with initial masses greater than 8 Suns combined.
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="astro-card">
+                            <h4><i class="fa-solid fa-telescope astro-icon"></i>Telescopes I've Worked With</h4>
+                            <ul class='observatories'>
+                                <li><i class="fa-solid fa-star astro-icon"></i> Himalayan Chandra Telescope (2-m)</li>
+                                <li><i class="fa-solid fa-star astro-icon"></i> Devasthal Optical Telescope (3.6-m)</li>
+                                <li><i class="fa-solid fa-star astro-icon"></i> UVOT onboard Swift Observatory (0.3-m)</li>
+                                <li><i class="fa-solid fa-star astro-icon"></i> Growth India Telescope (0.7-m)</li>
+                                <li><i class="fa-solid fa-star astro-icon"></i> KANATA Telescope, Hiroshima, Japan (1.5-m)</li>
+                                <li><i class="fa-solid fa-star astro-icon"></i> AstroSat (UVIT)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="astro-card">
+                            <h4><i class="fa-solid fa-code astro-icon"></i>Tools & Languages</h4>
+                            <ul class='tools'>
+                                <li><i class="fa-brands fa-python astro-icon"></i>Languages: C, C++, Python</li>
+                                <li><i class="fa-solid fa-gears astro-icon"></i>Tools/Softwares: MESA Star, IRAF, SYNAPPS, TARDIS, Linux, MS-Office</li>
+                                <li><i class="fa-solid fa-code astro-icon"></i>Others: LaTeX, HTML, CSS, Javascript</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+                <div class="astro-card">
+                    <h3 class="text-center"><i class="fa-solid fa-meteor astro-icon"></i>Extracurriculars</h3>
+                    <ul class='tools'>
+                        <li><i class="fa-solid fa-table-tennis-paddle-ball astro-icon"></i>Love playing both indoor and outdoor games (Table Tennis, Badminton, Volleyball, Cricket, Football, Chess)</li>
+                        <li><i class="fa-solid fa-book-open astro-icon"></i>Love reading fiction and mythology books</li>
+                        <li><i class="fa-solid fa-film astro-icon"></i>Ardent Cinema lover</li>
+                        <li><i class="fa-solid fa-microchip astro-icon"></i>Tech enthusiast</li>
+                        <li><i class="fa-solid fa-users astro-icon"></i>Worked on different committees at school and college level</li>
+                        <li><i class="fa-solid fa-newspaper astro-icon"></i>Editorial & design roles for IIA's science e-Magazine <a href="https://www.iiap.res.in/doot/" target="_blank" style="color:#ffb300;">'DOOT'</a> [Chief Editor, May-2023 to Jan-2024]</li>
+                        <li><i class="fa-solid fa-globe astro-icon"></i>Editorial work at ASI's Science Outreach platform 'Cosmic Varta'</li>
+                        <li><i class="fa-solid fa-user-shield astro-icon"></i>Part of institute's computer committee as student representative</li>
+                        <li><i class="fa-solid fa-star astro-icon"></i>Life member of Astronomical Society of India (ASI) [L2454]</li>
+                    </ul>
+                    <p class="mt-3">
+                        I have always believed in working hard with honesty. I am always eager to learn new things, whether new tools, concepts, or even sports. I have always been a very keen listener and love to hear about different things from everyone. I believe in self-learning and followed it most of my life. I have experienced that, howsoever challenging things may seem, if we keep working hard, it eventually bears fruit and presents us with wonderful outcomes. I like to do everything with utmost dedication and passion.
+                    </p>
+                </div>
             </div>
-            <div class="col mt-4">
-                <img src="./media/RST_2.jpg" class="img-fluid rounded-3 float-end shadow-lg">
-
+            <div class="col-12 col-lg-4 text-center">
+                <img src="./media/RST_2.jpg" class="profile-img shadow-lg" alt="Rishabh Singh Teja">
             </div>
         </div>
+        <figure class="text-center fs-5">
+            <blockquote class="blockquote fs-4">
+                <p>Do not stop at one thing, keep on learning new things; forever.</p>
+            </blockquote>
+            <figcaption class="blockquote-footer text-light">
+                Random quote from <cite title="myself">myself</cite>
+            </figcaption>
+        </figure>
+    </main>
 
-
-    </div>
-
-
-    </div>
-
-    <figure class="text-center fs-5">
-        <blockquote class="blockquote fs-4">
-            <p>Do not stop at one thing, keep on learning new things; forever.</p>
-        </blockquote>
-        <figcaption class="blockquote-footer text-dark">
-            Random quote from <cite title="myself">myself</cite>
-        </figcaption>
-    </figure>
-
-    <div class='container-fluid'>
+    <div class='container-fluid mt-4'>
         <div class='row'>
-            <div class="col text-start fixed-bottom mb-0">
-                <p class="text-black mb-0"> Copyright &copy; 2024 Rishabh Singh Teja. All rights are reserved.</p>
+            <div class="col-12 col-md-6 text-start mb-0">
+                <p class="text-light mb-0">Copyright &copy; 2025 Rishabh Singh Teja. All rights reserved. (Powered by GitHub Copilot)</p>
             </div>
-
-            <div class="col mb-2 text-end align-items-end social-media fixed-bottom">
+            <div class="col-12 col-md-6 mb-2 text-end align-items-end social-media">
                 <ul class="websites">
                     <li>
-                        <a href="https://facebook.com/rishabh.teja/"><img src="./media/facebook-48x48-3649909.png" /></a>
+                        <a href="https://facebook.com/rishabh.teja/" target="_blank" title="Facebook"><img src="./media/facebook-48x48-3649909.png" alt="Facebook" /></a>
                     </li>
                     <li>
-                        <a href="https://x.com/astronomoid"><img src="./media/X.png" /></a>
+                        <a href="https://x.com/astronomoid" target="_blank" title="X / Twitter"><img src="./media/twitterx.png" alt="X" /></a>
                     </li>
                     <li>
-                        <a href="https://instagram.com/astronomoid"><img src="./media/instagram-48x48-3649911.png" /></a>
+                        <a href="https://instagram.com/astronomoid" target="_blank" title="Instagram"><img src="./media/instagram-48x48-3649911.png" alt="Instagram" /></a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/astronomoid"><img src="./media/linkedin-48x48-3649912.png"></a>
+                        <a href="https://www.linkedin.com/in/astronomoid" target="_blank" title="LinkedIn"><img src="./media/linkedin-48x48-3649912.png" alt="LinkedIn"></a>
                     </li>
                     <li>
-                        <a href="mailto:rsteja001@gmail.com;rishabh.teja@iiap.res.in"><img src="./media/email.png" /></a>
+                        <a href="mailto:rsteja001@gmail.com;rishabh.teja@iiap.res.in" title="Email"><img src="./media/email.png" alt="Email" /></a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <footer>
-        <p class="last text-center">This website is still in progress </p>
-    </footer>
+    <script src="./code/code.js"></script>
+    <script>
+        // Simple starfield animation for astronomy theme
+        const canvas = document.querySelector('.star-bg');
+        const ctx = canvas.getContext('2d');
+        let w, h, stars = [];
+        function resize() {
+            w = window.innerWidth;
+            h = window.innerHeight;
+            canvas.width = w;
+            canvas.height = h;
+        }
+        function Star() {
+            this.x = Math.random() * w;
+            this.y = Math.random() * h;
+            this.radius = Math.random() * 1.2 + 0.2;
+            this.alpha = Math.random() * 0.5 + 0.5;
+            this.speed = Math.random() * 0.05 + 0.02;
+        }
+        function drawStars() {
+            ctx.clearRect(0, 0, w, h);
+            for (let i = 0; i < stars.length; i++) {
+                let s = stars[i];
+                ctx.save();
+                ctx.globalAlpha = s.alpha;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
+                ctx.fillStyle = "#fff";
+                ctx.shadowColor = "#fff";
+                ctx.shadowBlur = 8;
+                ctx.fill();
+                ctx.restore();
+                s.y += s.speed;
+                if (s.y > h) {
+                    s.y = 0;
+                    s.x = Math.random() * w;
+                }
+            }
+            requestAnimationFrame(drawStars);
+        }
+        function initStars() {
+            stars = [];
+            let numStars = Math.floor(w * h / 1800);
+            for (let i = 0; i < numStars; i++) {
+                stars.push(new Star());
+            }
+        }
+        window.addEventListener('resize', () => {
+            resize();
+            initStars();
+        });
+        resize();
+        initStars();
+        drawStars();
+    </script>
 </body>
-<script src="./code/code.js"></script>
-
 </html>

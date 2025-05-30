@@ -1,14 +1,90 @@
-body {
-    /* background-color: black;*/
-    /* background: rgb(21, 0, 255); */
-    /* background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(21, 0, 255, 1) 100%); */
-    background: linear-gradient(90deg, rgba(96, 124, 142, 1) 30%, rgba(217, 84, 77, 1) 100%);
-    /* background-repeat:repeat-x; */
-    /* background-size:contain; */
-    background-size: auto;
-    color: white;
-    /* margin: 2px 2%; */
-    font-family: 'Times New Roman', Times, serif;
+/* Education page specific styles */
+.edu-table {
+    width: 100%;
+    background: rgba(30, 41, 59, 0.92);
+    color: #e0e6ed;
+    border-radius: 1rem;
+    box-shadow: 0 2px 16px #0008;
+    margin: 2rem 0;
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.edu-table th, .edu-table td {
+    padding: 0.8rem 0.7rem;
+    border: 1px solid #3949ab;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.edu-table th {
+    background: linear-gradient(135deg, #3949ab 0%, #5c6bc0 100%);
+    color: #fffde7;
+    font-weight: 600;
+}
+
+.edu-table tr:nth-child(even) {
+    background: rgba(57, 73, 171, 0.18);
+}
+
+.edu-table tr:hover {
+    background: rgba(255, 179, 0, 0.08);
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+}
+
+.table-container {
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+
+.resume-link {
+    color: #ffb300;
+    text-decoration: none;
+    font-weight: 600;
+    background: rgba(57, 73, 171, 0.7);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.resume-link:hover {
+    color: #fffde7;
+    background: rgba(255, 179, 0, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(255, 179, 0, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .edu-table th, .edu-table td {
+        padding: 0.5rem 0.3rem;
+        font-size: 0.98rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .edu-table th, .edu-table td {
+        font-size: 0.92rem;
+    }
+    .table-container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .edu-table th, .edu-table td {
+        font-size: 0.85rem;
+        padding: 0.35rem 0.2rem;
+    }
+    .table-container {
+        padding: 0.8rem;
+    }
 }
 
 .toptext {

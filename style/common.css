@@ -1,0 +1,165 @@
+/* Common styles for all pages */
+html, body {
+    height: 100%;
+}
+
+body {
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    color: #e0e6ed;
+    min-height: 100vh;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    position: relative;
+}
+
+/* Star background */
+.star-bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    top: 0; left: 0;
+    pointer-events: none;
+}
+
+/* Header styles */
+header {
+    background: rgba(15, 23, 42, 0.85);
+    border-bottom: 2px solid #3949ab;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    z-index: 2;
+}
+
+.navbar-custom {
+    background: transparent;
+}
+
+.menu {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.menu li {
+    flex: 0 1 auto;
+}
+
+.menu li a {
+    color: #b3c7f7;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+    display: inline-block;
+}
+
+.menu li a.current-page,
+.menu li a:hover {
+    background: #3949ab;
+    color: #fff;
+}
+
+/* Common card styles */
+.intro-card, .astro-card {
+    background: rgba(30, 41, 59, 0.92);
+    border-radius: 1rem;
+    box-shadow: 0 2px 16px #0008;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Icon styles */
+.astro-icon {
+    color: #ffb300;
+    margin-right: 0.5em;
+}
+
+/* Quote styles */
+.blockquote {
+    background: rgba(57, 73, 171, 0.7);
+    color: #fffde7;
+    border-left: 6px solid #ffb300;
+    border-radius: 0.5rem;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    font-style: italic;
+    position: relative;
+}
+
+.blockquote:before {
+    content: "\f10d";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #ffb300;
+    font-size: 2rem;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    opacity: 0.3;
+}
+
+/* Footer and social media */
+footer {
+    background: transparent;
+    color: #b3c7f7;
+    padding: 1rem 0 0.5rem 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.websites {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 0;
+    padding-left: 0;
+    flex-wrap: wrap;
+}
+
+.websites img {
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(0 0 4px #3949ab88);
+    transition: transform 0.2s;
+}
+
+.websites img:hover {
+    transform: scale(1.15) rotate(-8deg);
+}
+
+/* Section titles */
+.section-title {
+    color: #ffb300;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .menu {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    .intro-card, .astro-card {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .intro-card, .astro-card {
+        padding: 0.7rem;
+    }
+    .blockquote {
+        padding: 1rem 0.7rem 1rem 2.2rem;
+        font-size: 1rem;
+    }
+    .menu li a {
+        font-size: 1rem;
+        padding: 0.4rem 0.7rem;
+    }
+}

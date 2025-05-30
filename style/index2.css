@@ -1,17 +1,122 @@
-body {
-    /* background-color: black;*/
-    /* background: rgb(21, 0, 255); */
-    /* background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(21, 0, 255, 1) 100%); */
-    background: linear-gradient(90deg, rgba(96, 124, 142, 1) 30%, rgba(217, 84, 77, 1) 100%);
-    /* background-repeat:repeat-x; */
-    /* background-size:contain; */
-    background-size: auto;
-    color: white;
-    /* margin: 2px 2%; */
-    font-family: 'Times New Roman', Times, serif;
+/* Home page specific styles */
+.astro-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
 }
 
-.toptext {
+.tools li, .observatories li {
+    display: flex;
+    align-items: center;
+}
+
+/* Hover effects for navigation */
+.hovicon {
+    display: inline-block;
+    line-height: 75px;
+    cursor: default;
+    margin: 20px;
+    width: 90px;
+    height: 90px;
+    border-radius: 15%;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+}
+
+.hovicon.effect-8 {
+    -webkit-transition: -webkit-transform ease-out 0.1s, background 0.2s;
+    -moz-transition: -moz-transform ease-out 0.1s, background 0.2s;
+    transition: transform ease-out 0.1s, background 0.2s;
+}
+
+.hovicon.effect-8:after {
+    top: 0;
+    left: 0;
+    padding: 0;
+    z-index: -1;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+.hovicon.effect-8:hover {
+    background: rgba(3, 239, 247, 0.267);
+    -webkit-transform: scale(0.93);
+    -moz-transform: scale(0.93);
+    -ms-transform: scale(0.93);
+    transform: scale(0.93);
+    color: #fff;
+}
+
+.hovicon.effect-8:hover:after {
+    -webkit-animation: sonarEffect 1.3s ease-out 75ms;
+    -moz-animation: sonarEffect 1.3s ease-out 75ms;
+    animation: sonarEffect 1.3s ease-out 75ms;
+}
+
+@-webkit-keyframes sonarEffect {
+    0% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255, 255, 255, 0.5);
+        -webkit-transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes sonarEffect {
+    0% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255, 255, 255, 0.5);
+        -moz-transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes sonarEffect {
+    0% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 0.5;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px 10px #3851bc, 0 0 0 10px rgba(255, 255, 255, 0.5);
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Special text effects */
+.turn-it {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff176, 0 0 10px #fff176;
+    }
+    to {
+        text-shadow: 0 0 10px #ffb300, 0 0 20px #ffb300;
+    }
+}
     /* background-image: url('../media/PSX_Avinash.jpg');
     background-repeat: repeat; */
     /* position: auto; */

@@ -1,17 +1,24 @@
-body {
-    /* background-color: black;*/
-    /* background: rgb(21, 0, 255); */
-    /* background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(21, 0, 255, 1) 100%); */
-    background: linear-gradient(90deg, rgba(96, 124, 142, 1) 30%, rgba(217, 84, 77, 1) 100%);
-    /* background-repeat:repeat-x; */
-    /* background-size:contain; */
-    background-size: auto;
-    color: white;
-    /* margin: 2px 2%; */
-    font-family: 'Times New Roman', Times, serif;
+/* Works page specific styles */
+.project-card {
+    background: rgba(30, 41, 59, 0.92);
+    border-radius: 1rem;
+    box-shadow: 0 2px 16px #0008;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    transition: transform 0.2s;
 }
 
-.toptext {
+.project-card:hover {
+    transform: translateY(-4px);
+}
+
+.project-header {
+    padding: 1.5rem;
+    background: rgba(57, 73, 171, 0.2);
+    border-bottom: 1px solid rgba(57, 73, 171, 0.5);
+}
+
+.project-content {
     /* background-image: url('../media/PSX_Avinash.jpg');
     background-repeat: repeat; */
     /* position: auto; */
@@ -316,3 +323,36 @@ tr:nth-child(odd) {
         opacity: 0;
     }
 }
+
+/* <style> */
+/* ...existing styles... */
+.carousel-inner img,
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+    width: 500px;
+    max-height: 320px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+    border: 3px solid #3949ab;
+    box-shadow: 0 0 24px #3949ab55;
+    border-radius: 0.7rem;
+}
+@media (max-width: 768px) {
+    .carousel-inner img,
+    .card-img-top {
+        width: 100%;
+        max-width: 320px;
+        max-height: 200px;
+    }
+}
+@media (max-width: 480px) {
+    .carousel-inner img,
+    .card-img-top {
+        width: 100%;
+        max-width: 220px;
+        max-height: 120px;
+    }
+}
+/* </style> */

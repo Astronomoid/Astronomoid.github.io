@@ -1,28 +1,65 @@
-body {
-    /* background-color: black;*/
-    /* background: rgb(21, 0, 255); */
-    /* background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(21, 0, 255, 1) 100%); */
-    background: linear-gradient(90deg, rgba(96, 124, 142, 1) 30%, rgba(217, 84, 77, 1) 100%);
-    /* background-repeat:repeat-x; */
-    /* background-size:contain; */
-    background-size: auto;
-    color: white;
-    /* margin: 2px 2%; */
-    font-family: 'Times New Roman', Times, serif;
+/* Blog/Thoughts page specific styles */
+
+/* Blog post cards */
+.blog-card {
+    background: rgba(30, 41, 59, 0.92);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.toptext {
-    /* background-image: url('../media/PSX_Avinash.jpg');
-    background-repeat: repeat; */
-    /* position: auto; */
-    /* text-align: center; */
-    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
-    font-weight: bold;
-    text-transform: capitalize;
-    /* border-bottom: 2px solid #57b1dc; */
-    /* font-size: 1.5em; */
-    /* margin-top: 25px; */
-    color: white;
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(255, 179, 0, 0.2);
+}
+
+.blog-header {
+    cursor: pointer;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 179, 0, 0.3);
+}
+
+.blog-title {
+    color: #ffb300;
+    margin: 0;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(255, 179, 0, 0.3);
+}
+
+.blog-subtitle {
+    color: #e0e6ed;
+    font-weight: normal;
+    font-size: 0.9em;
+}
+
+.blog-date {
+    color: #b3c7f7;
+    font-size: 0.9em;
+}
+
+.blog-chevron {
+    transition: transform 0.3s ease;
+}
+
+.blog-header[aria-expanded="true"] .blog-chevron {
+    transform: rotate(180deg);
+}
+
+.blog-content {
+    padding-top: 1.5rem;
+    color: #e0e6ed;
+    line-height: 1.6;
+}
+
+.blog-content p {
+    margin-bottom: 1rem;
+}
+
+.blog-content em {
+    color: #ffb300;
+    font-style: italic;
 }
 
 .menu {

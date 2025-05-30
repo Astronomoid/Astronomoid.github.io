@@ -1,459 +1,706 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="google-site-verification" content="mRYUlrSnukwX8ldJ9-ssir6u0Mb25lZ_V5X1_SBdlUg" />
-    <meta http-equiv="Accept-CH" content="Sec-CH-Viewport-Width">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CE90WGQPY7"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-CE90WGQPY7');
     </script>
-    <link rel="stylesheet" href="./style/works.css">
     <link rel="stylesheet" href="./style/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./style/common.css">
+    <link rel="stylesheet" href="./style/works.css">
     <title>Works | Astronomoid</title>
+    <style>
+        /* Page-specific inline styles */
+        }
+        body {
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            color: #e0e6ed;
+            min-height: 100vh;
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            position: relative;
+        }
+        .star-bg {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            top: 0; left: 0;
+            pointer-events: none;
+        }
+        header {
+            background: rgba(15, 23, 42, 0.85);
+            border-bottom: 2px solid #3949ab;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+            z-index: 2;
+        }
+        .menu {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .menu li a {
+            color: #b3c7f7;
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: background 0.2s, color 0.2s;
+            display: inline-block;
+        }
+        .menu li a.current-page,
+        .menu li a:hover {
+            background: #3949ab;
+            color: #fff;
+        }
+        .turn-it {
+            color: #ffb300;
+            text-shadow: 0 0 8px #fff176, 0 0 2px #fff;
+        }
+        .astro-icon {
+            color: #ffb300;
+            margin-right: 0.5em;
+        }
+        .list-group-item {
+            background: rgba(30, 41, 59, 0.92);
+            border-radius: 1rem;
+            box-shadow: 0 2px 16px #0008;
+            margin-bottom: 2rem;
+            border: none;
+            color: #e0e6ed;
+        }
+        .list-group-item .fw-bold {
+            color: #ffb300;
+        }
+        .carousel-inner img {
+            border: 3px solid #3949ab;
+            box-shadow: 0 0 24px #3949ab55;
+            border-radius: 0.7rem;
+        }
+        .figure-caption {
+            color: #fffde7 !important;
+        }
+        .websites {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 0;
+            padding-left: 0;
+            flex-wrap: wrap;
+        }
+        .websites img {
+            width: 32px;
+            height: 32px;
+            filter: drop-shadow(0 0 4px #3949ab88);
+            transition: transform 0.2s;
+        }
+        .websites img:hover {
+            transform: scale(1.15) rotate(-8deg);
+        }
+        footer {
+            background: transparent;
+            color: #b3c7f7;
+            padding: 1rem 0 0.5rem 0;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .fixed-bottom {
+            position: static !important;
+        }
+        @media (max-width: 992px) {
+            .list-group-item {
+                padding: 1.2rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .menu {
+                gap: 0.5rem;
+                flex-wrap: wrap;
+            }
+            .list-group-item {
+                padding: 1rem;
+            }
+        }
+        @media (max-width: 576px) {
+            .list-group-item {
+                padding: 0.7rem;
+            }
+            .menu li a {
+                font-size: 1rem;
+                padding: 0.4rem 0.7rem;
+            }
+        }
+
+        .work-header {
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: all 0.2s ease;
+            border-radius: 0.5rem;
+        }
+
+        .work-header:hover {
+            background: rgba(57, 73, 171, 0.1);
+            transform: translateX(8px);
+        }
+
+        .work-chevron {
+            transition: transform 0.3s ease;
+            color: #ffb300;
+        }
+
+        [aria-expanded="true"] .work-chevron {
+            transform: rotate(180deg);
+        }
+
+        .work-content {
+            padding: 0 1rem;
+        }
+
+        .carousel {
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .carousel-item img {
+            max-height: 600px;
+            object-fit: contain;
+            background: #0a0f18;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 10%;
+            background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .carousel-control-next {
+            background: linear-gradient(-90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .carousel-indicators {
+            margin-bottom: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+            padding: 1rem 0;
+        }
+
+        .btn {
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: #3949ab;
+            border-color: #3949ab;
+        }
+
+        .btn-primary:hover {
+            background: #303f9f;
+            border-color: #303f9f;
+        }
+
+        .btn-secondary {
+            background: #455a64;
+            border-color: #455a64;
+        }
+
+        .btn-secondary:hover {
+            background: #37474f;
+            border-color: #37474f;
+        }
+
+        .btn-info {
+            background: #0f1419;
+            border-color: #0f1419;
+            color: #fff;
+        }
+
+        .btn-info:hover {
+            background: #000;
+            border-color: #000;
+            color: #fff;
+        }
+
+        .collapse {
+            transition: all 0.3s ease-out;
+        }
+
+        .collapsing {
+            height: 0;
+            overflow: hidden;
+            transition: height 0.35s ease;
+        }
+    </style>
 </head>
-
 <body>
-    <header>
-
-
-        <div class="container-fluid shadow-lg rounded">
-            <div class='row'>
-                <div class="col">
-                    <figure class="align-top">
-                        <a href="index.html"> <img src="./media/logo8_dark.png" height="80px" width="194px" /></a>
-                    </figure>
+    <canvas class="star-bg"></canvas>
+    <header class="py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-3 text-center text-md-start mb-2 mb-md-0">
+                    <a href="index.html">
+                        <img src="./media/logo_white.png" height="80" width="194" alt="Astronomoid Logo" class="img-fluid" style="max-width:100%;height:auto;" />
+                    </a>
                 </div>
-            </div>
-            <div class="row">
-                <div class='col text-center  mb-3 toptext'>
-                    <!-- <div class="first-line-text"> -->
-                    <h1>Studying The Universe Through Beautiful <span class='turn-it'>Deaths</span>!</h1>
+                <div class="col-12 col-md-9 text-center">
+                    <h1 class="display-6 display-md-5 fw-bold mb-0">Studying The Universe Through Beautiful <span class='turn-it'>Deaths</span>!</h1>
+                    <p class="lead mt-2 mb-0">Exploring the cosmos, one supernova at a time.</p>
                 </div>
             </div>
         </div>
-        </div>
-
-
-
-
-        <nav class="container-fluid topnav shadow-lg rounded">
+        <nav class="navbar-custom mt-3">
             <ul class="menu">
-                <li> <a class="hovicon effect-8 " href="index.html">Home</a></li>
-                <li><a class="hovicon effect-8 " href="education.html">Education</a></li>
-                <li> <a class="hovicon effect-8 " href="blog.html">Personal Blog</a></li>
-                <li> <a class="hovicon effect-8 current-page" href="works.html">Works</a></li>
-                <li> <a class="hovicon effect-8" href="memories.html">Memories</a></li>
-
+                <li><a class="hovicon effect-8" href="index.html">Home</a></li>
+                <li><a class="hovicon effect-8" href="education.html">Education</a></li>
+                <li><a class="hovicon effect-8" href="blog.html">Thoughts</a></li>
+                <li><a class="hovicon effect-8 current-page" href="works.html">Works</a></li>
+                <li><a class="hovicon effect-8" href="memories.html">Memories</a></li>
             </ul>
         </nav>
     </header>
 
-    <h1 class="text-center text-white">Some of my recent works</h1>
-
-    <div class="container text-white">
-        <div class="justify-content-center">
-            <ol class="list-group list-group-numbered flex-column-reverse">
-
-                <li class="list-group-item d-flex justify-content-between align-items-start">
+    <main class="container mt-4 position-relative" style="z-index:1;">
+        <h1 class="text-center mb-4" style="color:#ffb300;"><i class="fa-solid fa-flask-vial astro-icon"></i>Some of my recent works</h1>
+        <div class="works-list">
+            <article class="list-group-item">
+                <div class="d-flex justify-content-between align-items-start work-header" data-bs-toggle="collapse" data-bs-target="#work1" aria-expanded="false" aria-controls="work1" role="button">
                     <div class="ms-2 me-auto">
-                        <div class="fw-bold text-black">
-                            <h2> SN 2020jfo: A Short Plateau Type II Supernova from a Low Mass Progenitor </h2>
-                            <div class="img-fluid">
-                                <div id="SN2020jfocarousal" class="carousel carousel-dark slide" data-bs-ride="false">
-                                    <div class="carousel-indicators">
-                                        <button type="button" data-bs-target="#SN2020jfocarousal" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#SN2020jfocarousal" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                        <button type="button" data-bs-target="#SN2020jfocarousal" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                        <button type="button" data-bs-target="#SN2020jfocarousal" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                                        <button type="button" data-bs-target="#SN2020jfocarousal" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                                        <button type="button" data-bs-target="#SN2020jfocarousal" data-bs-slide-to="5" aria-label="Slide 6"></button>
-                                        <button type="button" data-bs-target="#SN2020jfocarousal" data-bs-slide-to="6" aria-label="Slide 7"></button>
-                                    </div>
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2020jfo/sn2020jfo_inset_final.png" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Pseudo-color image of SN 2020jfo with its host M61 taken from Himalayan Chandra Telescope, IAO, Hanle. (Ref <a href="https://doi.org/10.3847/1538-4357/ac610b">Teja et al 2022 ApJ 930 34</a> )
-                                                </figcaption>
-                                            </figure>
-
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2020jfo/lightcurves.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;:Panchromatic light curves for SN 2020jfo with photometry from HCT, Swift/UVOT, and ZTF. The time period for which SN 2020jfo went behind the Sun has been obliterated from the plot and is marked
-                                                    by the discontinuity in the abscissa. Offsets in the apparent magnitudes are for visual clarity. (Ref <a href="https://doi.org/10.3847/1538-4357/ac610b">Teja et al 2022 ApJ 930 34</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2020jfo/Spectra_sequence_hct_dot_hv.png" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Spectral evolution of SN 2020jfo from 3 days until 292 days post explosion. Lines have been identified following Gutiérrez et al. (2017b), some of the prominent lines are marked. All spectra are
-                                                    flux calibrated and corrected for reddening and redshift. (Ref <a href="https://doi.org/10.3847/1538-4357/ac610b">Teja et al 2022 ApJ 930 34</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2020jfo/steepness.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Estimated steepness of SN 2020jfo using the functional form from Elmhamdi et al. (2003b). (Ref <a href="https://doi.org/10.3847/1538-4357/ac610b">Teja et al 2022 ApJ 930 34</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2020jfo/quasibol.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Quasi-bolometric light curve (Q-bol) of SN 2020jfo along with other Type II SNe. Q-bol with contribution from UV fluxes and from SuperBol (without BB-corrections) are also plotted. Inset shows
-                                                    Optical and UV+Optical Q-bol during early phase. (Ref <a href="https://doi.org/10.3847/1538-4357/ac610b">Teja et al 2022 ApJ 930 34</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2020jfo/velevol.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Line velocity evolution of Balmer, Fe ii, and Sc ii features obtained using their absorption minima are shown here. A comparison with mean Type II SNe velocities from Gutiérrez et al. (2014) is
-                                                    also shown. The solid line represents mean value while the shaded region displays the 1-sigma scatter from the mean. (Ref <a href="https://doi.org/10.3847/1538-4357/ac610b">Teja et al 2022 ApJ 930 34</a>                                                    )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/mesastella.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Quasi-bolometric light curves obtained from MESA + STELLA modeling with different values of wsf (1.0, 3.0, 3.2, and 5.0) for the 12 solar mass ZAMS model. Quasi-bolometry of SN 2020jfo is overplotted
-                                                    for comparison. (Ref <a href="https://doi.org/10.3847/1538-4357/ac610b">Teja et al 2022 ApJ 930 34</a> )
-                                            </figure>
-                                        </div>
-                                    </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#SN2020jfocarousal" data-bs-slide="prev">
-                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                          <span class="visually-hidden">Previous</span>
-                                        </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#SN2020jfocarousal" data-bs-slide="next">
-                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                          <span class="visually-hidden">Next</span>
-                                        </button>
-                                </div>
-
-
-                            </div>
-                        </div class='p'>
-                        In this work, we have done a detailed photometric and spectroscopic analyis of a Type II SNe that occurred in M61 galaxy. We have also performed detailed semi-analytical and hydrodynamical modelling to ascertain about it progenitor. This work was published
-                        in The Astrophysical Journal (ApJ).<br> The "Open Access" published file can be accessed from <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ac610b/">IOP Website</a>.<br> This work can also
-                        be found on
-                        <a href="https://arxiv.org/abs/2202.09412">arXiv</a>.
+                        <h2 class="fw-bold h3">
+                            <i class="fa-solid fa-star-shooting astro-icon"></i>
+                            SN 2020jfo: A Short Plateau Type II Supernova from a Low Mass Progenitor
+                        </h2>
                     </div>
-
-                </li>
-
-
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold text-black">
-                            <h2> Far-ultraviolet to Near-infrared Observations of SN 2023ixf:
-                                <h3> A High-energy Explosion Engulfed in Complex Circumstellar Material </h3>
-                            </h2>
-                            <div class="img-fluid">
-                                <div id="SN2023ixfcarousal" class="carousel carousel-dark slide" data-bs-ride="false">
-                                    <div class="carousel-indicators">
-                                        <button type="button" data-bs-target="#SN2023ixfcarousal" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#SN2023ixfcarousal" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                        <button type="button" data-bs-target="#SN2023ixfcarousal" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                        <button type="button" data-bs-target="#SN2023ixfcarousal" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                                        <button type="button" data-bs-target="#SN2023ixfcarousal" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                                        <button type="button" data-bs-target="#SN2023ixfcarousal" data-bs-slide-to="5" aria-label="Slide 6"></button>
-                                        <button type="button" data-bs-target="#SN2023ixfcarousal" data-bs-slide-to="6" aria-label="Slide 7"></button>
-                                    </div>
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <figure class="figure container">
-                                                <!-- <div class="justify-content-center"> -->
-                                                <img src="./workimg/2023ixf/SN2023ixf_hct_RGB_.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: RGB composite image of SN 2023ixf in M101 galaxy taken from Himalayan Chandra Telescope, IAO, Hanle. (Ref <a href="https://twitter.com/astronomoid/status/1660629060475846657?s=20">Astronomoid's X (Twitter)</a>                                                    )
-                                                </figcaption>
-                                            </figure>
-
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2023ixf/SN2023ixf_light_curves_all.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;:Multiband photometry is shown along with the data compiled from public sources. The middle panel shows the bolometric light-curve evolution. The bottom panel shows the color evolution of SN 2023ixf
-                                                    along with the other SNe with observed flash features.. (Ref <a href="https://doi.org/10.3847/2041-8213/acef20">Teja et al 2023 ApJL 954 L12</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2023ixf/SN2023ixf_SwiftUVOT_spectraall.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;:NUV spectral evolution for SN 2023ixf obtained using Swift/UVOT. (Ref <a href="https://doi.org/10.3847/2041-8213/acef20">Teja et al 2023 ApJL 954 L12</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2023ixf/SN2023ixf_UVIT_modeled.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: UV spectral evolution obtained using Astrosat/UVIT and the SYNAPPS fit to the spectra of ∼7 and ∼12 days. (Ref <a href="https://doi.org/10.3847/2041-8213/acef20">Teja et al 2023 ApJL 954 L12</a>                                                    )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2023ixf/PLOT_SpecFlash_2023ixf.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Optical spectral evolution for SN 2023ixf from HCT, Perley & Gal-Yam (2023), and Stritzinger et al. (2023). The spectra are corrected for the redshift of the host galaxy, M101, and the epochs
-                                                    are labeled with respect to our adopted explosion epoch. Top left: early-time spectral sequence of flash features in SN 2023ixf with line identification of high-ionization features and Balmer lines.
-                                                    The inset depicts the Hα profile at +7.9 days having a broad P Cygni feature and intermediate-width Lorentzian emission. Top right: evolution of the line profile of Hα during the flash phase. Bottom
-                                                    left: spectral sequence of SN 2023ixf during the photospheric phase. Bottom right: evolution of the multipeaked emission profile of Hα during the photospheric phase. Here HV and PV refer to the high-
-                                                    and photospheric-velocity components in the blueshifted absorption wing of Hα. (Ref <a href="https://doi.org/10.3847/2041-8213/acef20">Teja et al 2023 ApJL 954 L12</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2023ixf/SN2023ixf_gband_M12_18_Models.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Best model light curves that could represent the g- band light-curve evolution of SN 2023ixf obtained out of a large sample of >170,000 models presented in Moriya et al. (2023) for different progenitor
-                                                    masses. (Ref <a href="https://doi.org/10.3847/2041-8213/acef20">Teja et al 2023 ApJL 954 L12</a> )
-                                            </figure>
-                                        </div>
-
-                                    </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#SN2023ixfcarousal" data-bs-slide="prev">
-                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                  <span class="visually-hidden">Previous</span>
-                                </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#SN2023ixfcarousal" data-bs-slide="next">
-                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                  <span class="visually-hidden">Next</span>
-                                </button>
-                                </div>
-
-
+                    <i class="fas fa-chevron-down ms-2 work-chevron"></i>
+                </div>
+                <div class="collapse" id="work1">
+                    <div class="work-content mt-3">
+                        <div class="carousel slide mb-4" id="SN2020jfoCarousel" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#SN2020jfoCarousel" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#SN2020jfoCarousel" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#SN2020jfoCarousel" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#SN2020jfoCarousel" data-bs-slide-to="3"></button>
+                                <button type="button" data-bs-target="#SN2020jfoCarousel" data-bs-slide-to="4"></button>
+                                <button type="button" data-bs-target="#SN2020jfoCarousel" data-bs-slide-to="5"></button>
+                                <button type="button" data-bs-target="#SN2020jfoCarousel" data-bs-slide-to="6"></button>
                             </div>
-                        </div class='p'>
-                        This letter presents detailed multiband observations utilizing both ground and space based observatiories. We covered far-ultraviolet (UV) to near-infrared (NIR) wavelengths, including near-ultraviolet and optical regimes as well, obtaining both photometry
-                        and spectroscopy data in details. We made use of many world class international facilities extensively to obtain data. We tried to understand the early phase evolution (upto 20 days after 💥) in details utilising this rich data
-                        set. We estimated various parameters including explosion energy, circumstellar mass and its distribution, and presented a detailed qualitative analysis of UV spectra. This work was published in The Astrophysical Journal Letters(ApJL).
-                        <br> The "Open Access" published file can be accessed from <a href="https://iopscience.iop.org/article/10.3847/2041-8213/acef20">IOP Website</a>.<br> This work can also be found on <a href="https://arxiv.org/abs/2306.10284">arXiv</a>.
-                        <br> A small X (Twitter) thread can be found <a href="https://twitter.com/astronomoid/status/1695675302868029598?s=20">here</a>.
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="./workimg/2020jfo/sn2020jfo_inset_final.png" class="d-block w-100" alt="SN 2020jfo observation">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./workimg/2020jfo/lightcurves.jpg" class="d-block w-100" alt="Light curves">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./workimg/2020jfo/mesastella.jpg" class="d-block w-100" alt="MESA stellar evolution">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./workimg/2020jfo/quasibol.jpg" class="d-block w-100" alt="Quasi-bolometric analysis">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./workimg/2020jfo/Spectra_sequence_hct_dot_hv.png" class="d-block w-100" alt="Spectral sequence">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./workimg/2020jfo/steepness.jpg" class="d-block w-100" alt="Steepness analysis">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./workimg/2020jfo/velevol.jpg" class="d-block w-100" alt="Velocity evolution">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#SN2020jfoCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#SN2020jfoCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <p>In this work, we have done a detailed photometric and spectroscopic analysis of a Type II SNe that occurred in M61 galaxy. We have also performed detailed semi-analytical and hydrodynamical modelling to ascertain about its progenitor. This work was published in The Astrophysical Journal (ApJ).</p>
+                        <div class="mt-3">
+                            <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ac610b/" class="btn btn-primary me-2" target="_blank">
+                                <i class="fas fa-external-link-alt me-1"></i> Read on IOP
+                            </a>
+                            <a href="https://arxiv.org/abs/2202.09412" class="btn btn-secondary" target="_blank">
+                                <i class="fas fa-file-pdf me-1"></i> arXiv
+                            </a>
+                        </div>
                     </div>
-                </li>
+                </div>
+            </article>
 
-
-
-                <li class="list-group-item d-flex justify-content-between align-items-start">
+            <article class="list-group-item mt-4">
+                <div class="d-flex justify-content-between align-items-start work-header" data-bs-toggle="collapse" data-bs-target="#work2" aria-expanded="false" aria-controls="work2" role="button">
                     <div class="ms-2 me-auto">
-                        <div class="fw-bold text-black">
-                            <h2> SN 2018gj: A rare SNe type with blueshifted emission peaks throughout </h2>
-                            <div class="img-fluid">
-                                <div id="SN2018gjcarousal" class="carousel carousel-dark slide" data-bs-ride="false">
-                                    <div class="carousel-indicators">
-                                        <button type="button" data-bs-target="#SN2018gjcarousal" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#SN2018gjcarousal" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                        <button type="button" data-bs-target="#SN2018gjcarousal" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                        <button type="button" data-bs-target="#SN2018gjcarousal" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                                        <button type="button" data-bs-target="#SN2018gjcarousal" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                                        <button type="button" data-bs-target="#SN2018gjcarousal" data-bs-slide-to="5" aria-label="Slide 6"></button>
-                                        <!-- <button type="button" data-bs-target="#SN2018gjcarousal" data-bs-slide-to="6" aria-label="Slide 7"></button> -->
-                                    </div>
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2018gj/2018gj1.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: RGB composite image of SN 2018gj in NGC 6217 host taken from Himalayan Chandra Telescope, IAO, Hanle. It also shows the separation from the host centre (Ref <a href="https://doi.org/10.3847/1538-4357/acdf5e">Teja et al 2023 ApJ 954 155</a>                                                    )
-                                            </figure>
-
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2018gj/2018gj2.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;:Multiband photometry of SN 2018gj from various telescopes. Spectral epochs are marked in the bottom. (Ref <a href="https://doi.org/10.3847/1538-4357/acdf5e">Teja et al 2023 ApJ 954 155</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2018gj/2018gj3.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;:2-componet model fitting results. Parameters are given in the figure itself. (Ref <a href="https://doi.org/10.3847/1538-4357/acdf5e">Teja et al 2023 ApJ 954 155</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2018gj/2018gj4.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Optical spectral time series with prominent lines marked. (Ref <a href="https://doi.org/10.3847/1538-4357/acdf5e">Teja et al 2023 ApJ 954 155</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2018gj/2018gj5.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Focussed view of Hα using ridge plot. It shows the prominent blueshift even at very late phases. (Ref <a href="https://doi.org/10.3847/1538-4357/acdf5e">Teja et al 2023 ApJ 954 155</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2018gj/2018gj6.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: MESA+STELLA models for SN 2018gj. (Ref <a href="https://doi.org/10.3847/1538-4357/acdf5e">Teja et al 2023 ApJ 954 155</a> )
-                                            </figure>
-                                        </div>
-
-                                    </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#SN2018gjcarousal" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
+                        <h2 class="fw-bold h3">
+                            <i class="fa-solid fa-meteor astro-icon"></i>
+                            Far-ultraviolet to Near-infrared Observations of SN 2023ixf
+                            <div class="h5 mt-1 text-muted">A High-energy Explosion Engulfed in Complex Circumstellar Material</div>
+                        </h2>
+                    </div>
+                    <i class="fas fa-chevron-down ms-2 work-chevron"></i>
+                </div>
+                <div class="collapse" id="work2">
+                    <div class="work-content mt-3">
+                        <div class="carousel slide mb-4" id="SN2023ixfCarousel" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#SN2023ixfCarousel" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#SN2023ixfCarousel" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#SN2023ixfCarousel" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#SN2023ixfCarousel" data-bs-slide-to="3"></button>
+                                <button type="button" data-bs-target="#SN2023ixfCarousel" data-bs-slide-to="4"></button>
+                                <button type="button" data-bs-target="#SN2023ixfCarousel" data-bs-slide-to="5"></button>
+                                <button type="button" data-bs-target="#SN2023ixfCarousel" data-bs-slide-to="6"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="./workimg/2023ixf/SN2023ixf_hct_RGB_.jpg" class="d-block w-100" alt="SN 2023ixf HCT observation">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./workimg/2023ixf/PLOT_SpecFlash_2023ixf.jpg" class="d-block w-100" alt="Spectral flash">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./workimg/2023ixf/SN2023ixf_gband_M12_18_Models.jpg" class="d-block w-100" alt="G-band models">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./workimg/2023ixf/SN2023ixf_light_curves_all.jpg" class="d-block w-100" alt="Light curves">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./workimg/2023ixf/SN2023ixf_SwiftUVOT_spectra_comp.jpg" class="d-block w-100" alt="UVOT spectra comparison">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./workimg/2023ixf/SN2023ixf_SwiftUVOT_spectraall.jpg" class="d-block w-100" alt="All UVOT spectra">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./workimg/2023ixf/SN2023ixf_UVIT_modeled.jpg" class="d-block w-100" alt="UVIT modeling">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#SN2023ixfCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
                             </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#SN2018gjcarousal" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
+                            <button class="carousel-control-next" type="button" data-bs-target="#SN2023ixfCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
                             </button>
+                        </div>
+                        <p>This letter presents detailed multiband observations utilizing both ground and space based observatories. We covered far-ultraviolet (UV) to near-infrared (NIR) wavelengths, including near-ultraviolet and optical regimes as well, obtaining both photometry and spectroscopy data in detail.</p>
+                        <p>We made use of many world class international facilities extensively to obtain data. We tried to understand the early phase evolution (up to 20 days after 💥) in detail utilizing this rich data set. We estimated various parameters including explosion energy, circumstellar mass and its distribution, and presented a detailed qualitative analysis of UV spectra.</p>
+                        <div class="mt-3">
+                            <a href="https://iopscience.iop.org/article/10.3847/2041-8213/acef20" class="btn btn-primary me-2" target="_blank">
+                                <i class="fas fa-external-link-alt me-1"></i> Read on IOP
+                            </a>
+                            <a href="https://arxiv.org/abs/2306.10284" class="btn btn-secondary me-2" target="_blank">
+                                <i class="fas fa-file-pdf me-1"></i> arXiv
+                            </a>
+                            <a href="https://twitter.com/astronomoid/status/1695675302868029598" class="btn btn-info" target="_blank">
+                                <i class="fab fa-x-twitter me-1"></i> Read Thread
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+
+            <article class="list-group-item mt-4">
+                <div class="d-flex justify-content-between align-items-start work-header" data-bs-toggle="collapse" data-bs-target="#work3" aria-expanded="false" aria-controls="work3" role="button">
+                    <div class="ms-2 me-auto">
+                        <h2 class="fw-bold h3">
+                            <i class="fa-solid fa-star astro-icon"></i>
+                            SN 2018gj: A rare SNe type with blueshifted emission peaks throughout
+                        </h2>
+                    </div>
+                    <i class="fas fa-chevron-down ms-2 work-chevron"></i>
+                </div>
+                <div class="collapse" id="work3">
+                    <div class="work-content mt-3">
+                        <div class="carousel slide mb-4" id="SN2018gjCarousel" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#SN2018gjCarousel" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#SN2018gjCarousel" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#SN2018gjCarousel" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#SN2018gjCarousel" data-bs-slide-to="3"></button>
+                                <button type="button" data-bs-target="#SN2018gjCarousel" data-bs-slide-to="4"></button>
+                                <button type="button" data-bs-target="#SN2018gjCarousel" data-bs-slide-to="5"></button>
+                                <button type="button" data-bs-target="#SN2018gjCarousel" data-bs-slide-to="6"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <figure class="figure container">
+                                        <img src="./workimg/2018gj/2018gj1.jpg" class="card-img-top" alt="Responsive image">
+                                        <figcaption class="figure-caption text-black text-right p-4"> &#127748;: RGB composite image of SN 2018gj in NGC 6217 host taken from Himalayan Chandra Telescope, IAO, Hanle. It also shows the separation from the host centre (Ref <a href="https://doi.org/10.3847/1538-4357/acdf5e">Teja et al 2023 ApJ 954 155</a>                                                    )
+                                    </figure>
+
+                                </div>
+                                <div class="carousel-item">
+                                    <figure class="figure container">
+                                        <img src="./workimg/2018gj/2018gj2.jpg" class="card-img-top" alt="Responsive image">
+                                        <figcaption class="figure-caption text-black text-right p-4"> &#127748;:Multiband photometry of SN 2018gj from various telescopes. Spectral epochs are marked in the bottom. (Ref <a href="https://doi.org/10.3847/1538-4357/acdf5e">Teja et al 2023 ApJ 954 155</a> )
+                                    </figure>
+                                </div>
+                                <div class="carousel-item">
+                                    <figure class="figure container">
+                                        <img src="./workimg/2018gj/2018gj3.jpg" class="card-img-top" alt="Responsive image">
+                                        <figcaption class="figure-caption text-black text-right p-4"> &#127748;:2-componet model fitting results. Parameters are given in the figure itself. (Ref <a href="https://doi.org/10.3847/1538-4357/acdf5e">Teja et al 2023 ApJ 954 155</a> )
+                                    </figure>
+                                </div>
+                                <div class="carousel-item">
+                                    <figure class="figure container">
+                                        <img src="./workimg/2018gj/2018gj4.jpg" class="card-img-top" alt="Responsive image">
+                                        <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Optical spectral time series with prominent lines marked. (Ref <a href="https://doi.org/10.3847/1538-4357/acdf5e">Teja et al 2023 ApJ 954 155</a> )
+                                    </figure>
+                                </div>
+                                <div class="carousel-item">
+                                    <figure class="figure container">
+                                        <img src="./workimg/2018gj/2018gj5.jpg" class="card-img-top" alt="Responsive image">
+                                        <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Focussed view of Hα using ridge plot. It shows the prominent blueshift even at very late phases. (Ref <a href="https://doi.org/10.3847/1538-4357/acdf5e">Teja et al 2023 ApJ 954 155</a> )
+                                    </figure>
+                                </div>
+                                <div class="carousel-item">
+                                    <figure class="figure container">
+                                        <img src="./workimg/2018gj/2018gj6.jpg" class="card-img-top" alt="Responsive image">
+                                        <figcaption class="figure-caption text-black text-right p-4"> &#127748;: MESA+STELLA models for SN 2018gj. (Ref <a href="https://doi.org/10.3847/1538-4357/acdf5e">Teja et al 2023 ApJ 954 155</a> )
+                                    </figure>
                                 </div>
 
-
                             </div>
-                        </div class='p'>
-                        (CoralAI Summary): The paper presents a study on the Type IIP supernova SN 2018gj, focusing on its photometric and spectroscopic properties. The supernova exhibited a shorter plateau phase of about 70 days compared to the typical 100-day plateau for Type
+                            <button class="carousel-control-prev" type="button" data-bs-target="#SN2018gjCarousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#SN2018gjCarousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                        </div>
+
+
+                        <p>(CoralAI Summary): The paper presents a study on the Type IIP supernova SN 2018gj, focusing on its photometric and spectroscopic properties. The supernova exhibited a shorter plateau phase of about 70 days compared to the typical 100-day plateau for Type
                         IIP SNe. The study includes UV, optical, and near-IR photometric observations and low-resolution optical spectroscopy from the photospheric to the nebular phase. The analysis involves the estimation of various parameters, including
                         the plateau length, V-band peak absolute magnitude, distance estimation, and the amount of radioactive Nickel (56-Ni) produced in the explosion. It explores the spectral evolution, with a notable observation of persistent blueshift
                         in emission lines until the late nebular phase, a feature uncommon in Type IIP SNe. The study utilized semianalytical modeling to estimate the ejecta mass, progenitor radius, total energy, and synthesized 56-Ni mass. The study
                         discusses the implications of consistent blueshifted emission lines and the absence of CSM interaction evidence in the spectra. The lack of dust signatures in the ejecta, along with the possibility of intrinsic high velocity of
                         the progenitor star, are also considered. Overall, the research provides a detailed investigation of SN 2018gj, offering insights into its unique properties, supernova evolution, and potential progenitor characteristics through
-                        a combination of observational data, modelling, and analysis.
-                        <br> The "Open Access" published file can be accessed from <a href="https://iopscience.iop.org/article/10.3847/1538-4357/acdf5e">IOP Website</a>.<br> This work can also be found on <a href="https://arxiv.org/abs/2306.10136">arXiv</a>.
-                        <!-- <br> A small X (Twitter) thread can be found <a href="https://twitter.com/astronomoid/status/1695675302868029598?s=20">here</a>. -->
+                        a combination of observational data, modelling, and analysis.</p>
+                        <div class="mt-3">
+                            <a href="https://iopscience.iop.org/article/10.3847/1538-4357/acdf5e" class="btn btn-primary me-2" target="_blank">
+                                <i class="fas fa-external-link-alt me-1"></i> Read on IOP
+                            </a>
+                            <a href="https://arxiv.org/abs/2306.10136" class="btn btn-secondary" target="_blank">
+                                <i class="fas fa-file-pdf me-1"></i> arXiv
+                            </a>
+                        </div>
                     </div>
+                </div>
+            </article>
 
-                </li>
-
-                <li class="list-group-item d-flex justify-content-between align-items-start">
+            <article class="list-group-item mt-4">
+                <div class="d-flex justify-content-between align-items-start work-header" data-bs-toggle="collapse" data-bs-target="#work4" aria-expanded="false" aria-controls="work4" role="button">
                     <div class="ms-2 me-auto">
-                        <div class="fw-bold text-black">
-                            <h2> SN 2021wvw: A Core-collapse Supernova at the Subluminous, Slower, and Shorter End of Type IIPs </h2>
-                            <div class="img-fluid">
-                                <div id="SN2021wvwcarousal" class="carousel carousel-dark slide" data-bs-ride="false">
-                                    <div class="carousel-indicators">
-                                        <button type="button" data-bs-target="#SN2021wvwcarousal" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#SN2021wvwcarousal" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                        <button type="button" data-bs-target="#SN2021wvwcarousal" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                        <button type="button" data-bs-target="#SN2021wvwcarousal" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                                        <button type="button" data-bs-target="#SN2021wvwcarousal" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                                        <button type="button" data-bs-target="#SN2021wvwcarousal" data-bs-slide-to="5" aria-label="Slide 6"></button>
-                                        <button type="button" data-bs-target="#SN2021wvwcarousal" data-bs-slide-to="6" aria-label="Slide 7"></button>
-                                    </div>
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2021wvw/2021wvw1.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: RGB color composite finder chart for SN2021wvw utilizing Bessell- BVR filters from HCT. (Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a> )
-                                            </figure>
+                        <h2 class="fw-bold h3">
+                            <i class="fa-solid fa-explosion astro-icon"></i>
+                            SN 2021wvw: A Core-collapse Supernova at the Subluminous, Slower, and Shorter End of Type IIPs
+                        </h2>
+                    </div>
+                    <i class="fas fa-chevron-down ms-2 work-chevron"></i>
+                </div>
+                <div class="collapse" id="work4">
+                    <div class="work-content mt-3">
+                        <div class="carousel slide mb-4" id="SN2021wvwCarousel" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#SN2021wvwCarousel" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#SN2021wvwCarousel" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#SN2021wvwCarousel" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#SN2021wvwCarousel" data-bs-slide-to="3"></button>
+                                <button type="button" data-bs-target="#SN2021wvwCarousel" data-bs-slide-to="4"></button>
+                                <button type="button" data-bs-target="#SN2021wvwCarousel" data-bs-slide-to="5"></button>
+                                <button type="button" data-bs-target="#SN2021wvwCarousel" data-bs-slide-to="6"></button>
+                                <button type="button" data-bs-target="#SN2021wvwCarousel" data-bs-slide-to="7"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <figure class="figure container">
+                                        <img src="./workimg/2021wvw/2021wvw1.jpg" class="card-img-top" alt="Responsive image">
+                                        <figcaption class="figure-caption text-black text-right p-4"> &#127748;: RGB color composite finder chart for SN2021wvw utilizing Bessell- BVR filters from HCT. (Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a> )
+                                    </figure>
 
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2021wvw/2021wvw2.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;:Light-curve evolution of SN 2021wvw for various filters from GIT and HCT is shown. The light curves also include data from ZTF and ATLAS surveys. The constants added to the individual light curves
-                                                    are for visual clarity(Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2021wvw/2021wvw3.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: SYNAPPS model fitting to the observed spectra around the mid- and end-plateau phases. The lower small panels show the model spectra of indi- vidual species when the contribution from rest of the
-                                                    species is turned off. (Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2021wvw/2021wvw4.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Observed and modeled bolometric evolution of SN 2021wvw for 18 solar mass ZAMS models with different sets of parameters. The solid red curve gives the best description of the model. The inset
-                                                    in the bottom left-hand corner shows the corresponding modeled and observed Fe II 5169 velocities. (Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2021wvw/2021wvw5.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: MESA+STELLA structures for different cases of 18 Me ZAMS models with different RTI parameters. A few species out of the 22 species network used in the modeling are shown here. Solid lines present
-                                                    the mass fraction just after we inject the explosion energy. The other two dashed lines show the final ejecta structure before the SB for different ηR,e/ηR values. The final ejecta profiles suffer from
-                                                    significant fallback during the shock-propaga- tion phase, (Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a> )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2021wvw/2021wvw6.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Plausible Eexp and Mej ranges plotted from the scaling relations obtained in Goldberg et al. (2019). The scatter points represent the ejecta masses obtained for various models utilized in this
-                                                    work. The energy values for all the evolved models are between 0.1 and 0.3 foe. The shaded regions include the values obtained considering the errors in the observables. (Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a>                                                    )
-                                            </figure>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <figure class="figure container">
-                                                <img src="./workimg/2021wvw/2021wvw7.jpg" class="card-img-top" alt="Responsive image">
-                                                <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Midplateau brightness, MV vs. plateau duration (tp) for a large sample including a wide range of Type II SNe obtained from Fang et al. (2024). (Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a>                                                    )
-                                            </figure>
-                                        </div>
-
-                                    </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#SN2021wvwcarousal" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#SN2021wvwcarousal" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
+                                </div>
+                                <div class="carousel-item">
+                                    <figure class="figure container">
+                                        <img src="./workimg/2021wvw/2021wvw2.jpg" class="card-img-top" alt="Responsive image">
+                                        <figcaption class="figure-caption text-black text-right p-4"> &#127748;:Light-curve evolution of SN 2021wvw for various filters from GIT and HCT is shown. The light curves also include data from ZTF and ATLAS surveys. The constants added to the individual light curves
+                                            are for visual clarity(Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a> )
+                                    </figure>
+                                </div>
+                                <div class="carousel-item">
+                                    <figure class="figure container">
+                                        <img src="./workimg/2021wvw/2021wvw3.jpg" class="card-img-top" alt="Responsive image">
+                                        <figcaption class="figure-caption text-black text-right p-4"> &#127748;: SYNAPPS model fitting to the observed spectra around the mid- and end-plateau phases. The lower small panels show the model spectra of indi- vidual species when the contribution from rest of the
+                                            species is turned off. (Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a> )
+                                    </figure>
+                                </div>
+                                <div class="carousel-item">
+                                    <figure class="figure container">
+                                        <img src="./workimg/2021wvw/2021wvw4.jpg" class="card-img-top" alt="Responsive image">
+                                        <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Observed and modeled bolometric evolution of SN 2021wvw for 18 solar mass ZAMS models with different sets of parameters. The solid red curve gives the best description of the model. The inset
+                                            in the bottom left-hand corner shows the corresponding modeled and observed Fe II 5169 velocities. (Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a> )
+                                    </figure>
+                                </div>
+                                <div class="carousel-item">
+                                    <figure class="figure container">
+                                        <img src="./workimg/2021wvw/2021wvw5.jpg" class="card-img-top" alt="Responsive image">
+                                        <figcaption class="figure-caption text-black text-right p-4"> &#127748;: MESA+STELLA structures for different cases of 18 Me ZAMS models with different RTI parameters. A few species out of the 22 species network used in the modeling are shown here. Solid lines present
+                                            the mass fraction just after we inject the explosion energy. The other two dashed lines show the final ejecta structure before the SB for different ηR,e/ηR values. The final ejecta profiles suffer from
+                                            significant fallback during the shock-propaga-tion phase, (Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a> )
+                                    </figure>
+                                </div>
+                                <div class="carousel-item">
+                                    <figure class="figure container">
+                                        <img src="./workimg/2021wvw/2021wvw6.jpg" class="card-img-top" alt="Responsive image">
+                                        <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Plausible Eexp and Mej ranges plotted from the scaling relations obtained in Goldberg et al. (2019). The scatter points represent the ejecta masses obtained for various models utilized in this
+                                            work. The energy values for all the evolved models are between 0.1 and 0.3 foe. The shaded regions include the values obtained considering the errors in the observables. (Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a>                                                    )
+                                    </figure>
+                                </div>
+                                <div class="carousel-item">
+                                    <figure class="figure container">
+                                        <img src="./workimg/2021wvw/2021wvw7.jpg" class="card-img-top" alt="Responsive image">
+                                        <figcaption class="figure-caption text-black text-right p-4"> &#127748;: Midplateau brightness, MV vs. plateau duration (tp) for a large sample including a wide range of Type II SNe obtained from Fang et al. (2024). (Ref <a href="https://doi.org/10.3847/1538-4357/ad67d9">Teja et al 2024 ApJ 974 44</a>                                                    )
+                                    </figure>
                                 </div>
 
-
                             </div>
-                        </div class='p'>
-                        (CoralAI Summary): The article presents detailed observations and analyses of the core-collapse supernova SN 2021wvw, characterized as a rare short-plateau Type IIP supernova. It reports multiband photometric evolution for up to 250 days and spectroscopic
+                            <button class="carousel-control-prev" type="button" data-bs-target="#SN2021wvwCarousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#SN2021wvwCarousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                        </div>
+
+
+                        <p>(CoralAI Summary): The article presents detailed observations and analyses of the core-collapse supernova SN 2021wvw, characterized as a rare short-plateau Type IIP supernova. It reports multiband photometric evolution for up to 250 days and spectroscopic
                         coverage for 100 days post-explosion. SN 2021wvw exhibits an intermediate luminosity with a notably short plateau phase of approximately 75 days, followed by a sharp transition to the tail phase. The peak absolute magnitude is
                         noted at -16.1 mag in the r-band, with a nickel mass estimated at 0.020 ± 0.006 M☉. Hydrodynamical modeling suggests a low-metallicity, high-mass red supergiant progenitor. This event highlights the diversity among transitional
-                        supernovae, bridging the gap between typical Type IIP supernovae and stripped-envelope events.
-                        <br> The "Open Access" published file can be accessed from <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ad67d9">IOP Website</a>.<br> This work can also be found on <a href="https://arxiv.org/abs/2407.13207">arXiv</a>.
-                        <!-- <br> A small X (Twitter) thread can be found <a href="https://twitter.com/astronomoid/status/1695675302868029598?s=20">here</a>. -->
+                        supernovae, bridging the gap between typical Type IIP supernovae and stripped-envelope events.</p>
+                        <div class="mt-3">
+                            <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ad67d9" class="btn btn-primary me-2" target="_blank">
+                                <i class="fas fa-external-link-alt me-1"></i> Read on IOP
+                            </a>
+                            <a href="https://arxiv.org/abs/2407.13207" class="btn btn-secondary" target="_blank">
+                                <i class="fas fa-file-pdf me-1"></i> arXiv
+                            </a>
+                        </div>
                     </div>
-
-                </li>
-
-
-
-            </ol>
-
+                </div>
+            </article>
+            <!-- All your work items are already present and styled, so no change needed here -->
         </div>
-    </div>
+    </main>
 
-
-
-    <div class=' container-fluid '>
-        <div class='row '>
-            <div class="col text-start fixed-bottom mb-0">
-                <p class="text-black mb-0"> Copyright &copy; 2024 Rishabh Singh Teja. All rights are reserved.</p>
+    <div class='container-fluid mt-4'>
+        <div class='row'>
+            <div class="col-12 col-md-6 text-start mb-0">
+                <p class="text-light mb-0">Copyright &copy; 2025 Rishabh Singh Teja. All rights reserved. (Powered by GitHub Copilot)</p>
             </div>
-
-            <div class="col mb-2 text-end align-items-end social-media fixed-bottom">
+            <div class="col-12 col-md-6 mb-2 text-end align-items-end social-media">
                 <ul class="websites">
                     <li>
-                        <a href="https://facebook.com/rishabh.teja/"><img src="./media/facebook-48x48-3649909.png" /></a>
+                        <a href="https://facebook.com/rishabh.teja/" target="_blank" title="Facebook"><img src="./media/facebook-48x48-3649909.png" alt="Facebook" /></a>
                     </li>
                     <li>
-                        <a href="https://x.com/astronomoid"><img src="./media/X.png" /></a>
+                        <a href="https://x.com/astronomoid" target="_blank" title="X / Twitter"><img src="./media/twitterx.png" alt="X" /></a>
                     </li>
                     <li>
-                        <a href="https://instagram.com/astronomoid"><img src="./media/instagram-48x48-3649911.png" /></a>
+                        <a href="https://instagram.com/astronomoid" target="_blank" title="Instagram"><img src="./media/instagram-48x48-3649911.png" alt="Instagram" /></a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/astronomoid"><img src="./media/linkedin-48x48-3649912.png"></a>
+                        <a href="https://www.linkedin.com/in/astronomoid" target="_blank" title="LinkedIn"><img src="./media/linkedin-48x48-3649912.png" alt="LinkedIn"></a>
                     </li>
                     <li>
-                        <a href="mailto:rsteja001@gmail.com;rishabh.teja@iiap.res.in"><img src="./media/email.png" /></a>
+                        <a href="mailto:rsteja001@gmail.com;rishabh.teja@iiap.res.in" title="Email"><img src="./media/email.png" alt="Email" /></a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <footer>
-        <p class="last text-center">This website is still in progress </p>
-    </footer>
     <script src="./code/jquery.js"></script>
     <script src="./code/bootstrapbundle.js"></script>
+    <script>
+        // Simple starfield animation for astronomy theme
+        const canvas = document.querySelector('.star-bg');
+        const ctx = canvas.getContext('2d');
+        let w, h, stars = [];
+        function resize() {
+            w = window.innerWidth;
+            h = window.innerHeight;
+            canvas.width = w;
+            canvas.height = h;
+        }
+        function Star() {
+            this.x = Math.random() * w;
+            this.y = Math.random() * h;
+            this.radius = Math.random() * 1.2 + 0.2;
+            this.alpha = Math.random() * 0.5 + 0.5;
+            this.speed = Math.random() * 0.05 + 0.02;
+        }
+        function drawStars() {
+            ctx.clearRect(0, 0, w, h);
+            for (let i = 0; i < stars.length; i++) {
+                let s = stars[i];
+                ctx.save();
+                ctx.globalAlpha = s.alpha;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.radius, 0, 2 * Math.PI);
+                ctx.fillStyle = "#fff";
+                ctx.shadowColor = "#fff";
+                ctx.shadowBlur = 8;
+                ctx.fill();
+                ctx.restore();
+                s.y += s.speed;
+                if (s.y > h) {
+                    s.y = 0;
+                    s.x = Math.random() * w;
+                }
+            }
+            requestAnimationFrame(drawStars);
+        }
+        function initStars() {
+            stars = [];
+            let numStars = Math.floor(w * h / 1800);
+            for (let i = 0; i < numStars; i++) {
+                stars.push(new Star());
+            }
+        }
+        window.addEventListener('resize', () => {
+            resize();
+            initStars();
+        });
+        resize();
+        initStars();
+        drawStars();
+    </script>
+    <script src="./code/code.js"></script>
 </body>
-<script src="./code/code.js"></script>
-
 </html>
